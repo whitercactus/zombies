@@ -5,7 +5,6 @@ from settings import *
 from sprites import *
 from tilemap import *
 
-
 # HUD functions
 def draw_player_health(surf, x, y, pct):
     if pct < 0:
@@ -64,7 +63,7 @@ class Game:
                 self.map_no = int(f.read())
             except:
                 self.map_no = 1
-        self.map = Map('map{}.txt'.format(self.map_no))
+        self.map = Map('map{}'.format(self.map_no) + '.txt')
         self.gun_flashes = []
         self.bullet_images = {}
         self.bullet_images['lg'] = pg.image.load(BULLET_IMG).convert_alpha()
@@ -171,7 +170,7 @@ class Game:
     def draw(self):
         self.screen.blit(self.bg, (0,0))
         font = pg.font.SysFont("comicsansms", 25)
-        text = font.render("Mobs left: {}".format(len(self.mobs)), False, WHITE)
+        text = font.render("Mobs left: " + str(len(self.mobs)), False, WHITE)
         # self.draw_grid()
         for sprite in self.all_sprites:
             if isinstance(sprite, Mob):
@@ -223,11 +222,11 @@ class Game:
     def show_go_screen(self):
         self.screen.fill(BLACK)
         font = pg.font.SysFont("comicsansms", 50)
-        text = font.render("Kills: {}".format(self.kills), False, WHITE)
+        text = font.render("Kills: " + str(self.kills), False, WHITE)
         text_rect = text.get_rect()
         text_rect.center = (int(WIDTH / 2), int(HEIGHT / 2))
         self.screen.blit(text, text_rect)
-        text = font.render("Deaths: {}".format(self.deaths), False, WHITE)
+        text = font.render("Deaths: " + str(self.deaths), False, WHITE)
         text_rect = text.get_rect()
         text_rect.center = (int(WIDTH / 2), int(HEIGHT / 2 + 55))
         self.screen.blit(text, text_rect)

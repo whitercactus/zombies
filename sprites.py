@@ -244,6 +244,3 @@ class MuzzleFlash(pg.sprite.Sprite):
     def update(self):
         if pg.time.get_ticks() - self.spawn_time > 50:
             self.kill()
-
-
-
