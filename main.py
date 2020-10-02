@@ -55,7 +55,7 @@ class Game:
         self.effects_sounds = {}
         self.wall_img = pg.transform.scale(self.wall_img, (TILESIZE, TILESIZE))
         self.weapon_sounds = {}
-        self.grass_tile = pg.image.load(path.join(self.img_folderGRASS_IMG)).convert_alpha()
+        self.grass_tile = pg.image.load(path.join(self.img_folder, GRASS_IMG)).convert_alpha()
         self.grass_tile = pg.transform.scale(self.grass_tile, (64, 64))
         self.bg = pg.Surface([WIDTH, HEIGHT])
         for x in range(WIDTH):
@@ -72,10 +72,10 @@ class Game:
         self.bullet_images['lg'] = pg.image.load(path.join(self.img_folder, BULLET_IMG)).convert_alpha()
         self.bullet_images['sm'] = pg.transform.scale(self.bullet_images['lg'], (10, 10))
         for img in MUZZLE_FLASHES:
-            self.gun_flashes.append(pg.image.load(img).convert_alpha())
+            self.gun_flashes.append(pg.image.load(path.join(self.img_folder, img)).convert_alpha())
         self.fog = pg.Surface((WIDTH, HEIGHT))
         self.fog.fill(NIGHT_COLOR)
-        self.light_mask = pg.image.load(LIGHT_MASK).convert_alpha()
+        self.light_mask = pg.image.load(path.join(self.img_folder, LIGHT_MASK)).convert_alpha()
         self.light_mask = pg.transform.scale(self.light_mask, (500,500))
         self.light_rect = self.light_mask.get_rect()
         self.zombie_moan_sounds = []
