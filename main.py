@@ -63,7 +63,7 @@ class Game:
                 self.map_no = int(f.read())
             except:
                 self.map_no = 1
-        self.map = Map('map{}'.format(self.map_no) + '.txt')
+        self.map = Map('map' + str(self.map_no) + '.txt')
         self.gun_flashes = []
         self.bullet_images = {}
         self.bullet_images['lg'] = pg.image.load(BULLET_IMG).convert_alpha()
