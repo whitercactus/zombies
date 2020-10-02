@@ -47,14 +47,6 @@ MOB_KNOCKBACK = 20
 MOB_SPLAT = "splat green.png"
 DETECT_RADIUS = 400
 
-# Target
-TARGET_IMG = "target.png"
-
-# Spawner
-SPAWNER_IMG = "tombstone.png"
-SPAWNER_HP = 75
-SPAWNER_TIME = 100
-
 # Health Pack
 HP_IMG = "health_pack.png"
 NUM_HEAL = 50

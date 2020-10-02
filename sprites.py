@@ -174,46 +174,6 @@ class Wall(pg.sprite.Sprite):
         self.rect.y = y * TILESIZE
         game.all_sprites.add(self)
 
-class Target(pg.sprite.Sprite):
-    def __init__(self, game,x,y):
-        self.groups = game.all_sprites, game.targets
-        pg.sprite.Sprite.__init__(self, self.groups)
-        self.game = game
-        self.image = pg.image.load(TARGET_IMG).convert_alpha()
-        self.image = pg.transform.scale(self.image, (64,64))
-        self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
-        self.rect.x = x * TILESIZE
-        self.rect.y = y * TILESIZE
-
-class Spawner(pg.sprite.Sprite):
-    def __init__(self, game,x,y):
-        self.groups = game.all_sprites, game.targets
-        pg.sprite.Sprite.__init__(self, self.groups)
-        self.game = game
-        self.image = pg.image.load(SPAWNER_IMG).convert_alpha()
-        self.image = pg.transform.scale(self.image, (64,64))
-        self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
-        self.rect.x = x * TILESIZE
-        self.rect.y = y * TILESIZE
-        self.hp = SPAWNER_HP
-        self.is_alive = True
-        game.all_sprites.add(self)
-
-    def draw_health(self):
-        if self.hp > 60:
-            col = GREEN
-        elif self.hp > 30:
-            col = YELLOW
-        else:
-            col = RED
-        width = int(self.rect.width * self.hp / SPAWNER_HP)
-        self.health_bar = pg.Rect(0, 0, width, 7)
-        if self.hp < SPAWNER_HP:
-            pg.draw.rect(self.image, col, self.health_bar)
 
 class HealthPack(pg.sprite.Sprite):
     def __init__(self, game,x,y):
